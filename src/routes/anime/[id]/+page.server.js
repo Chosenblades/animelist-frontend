@@ -11,7 +11,8 @@ const relationSortOrder = [
 	'Alternative setting',
 	'Summary',
 	'Spin-off',
-	'Other'
+	'Other',
+	'Character'
 ];
 
 /** @type {import('./$types').PageLoad} */

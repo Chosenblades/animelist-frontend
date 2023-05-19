@@ -38,18 +38,18 @@
   </svelte:fragment>
   <div class="hidden md:flex space-x-6">
     <a href="/" class="hover:text-primary-400">Home</a>
-    <a href="/" class="hover:text-primary-400">Anime</a>
-    <a href="/" class="hover:text-primary-400">Staff</a>
-    <a href="/" class="hover:text-primary-400">Characters</a>
+    <a href="/anime" class="hover:text-primary-400">Anime</a>
+    <a href="/people" class="hover:text-primary-400">People</a>
+    <a href="/character" class="hover:text-primary-400">Characters</a>
     <div class="hover:text-primary-400 cursor-pointer" use:popup={popupSettings}>
       Industry
       <i class="fa-solid fa-caret-down opacity-50"></i>
     </div>
     <div class="card p-4" data-popup="industryPopup">
       <div class="flex flex-col space-y-2">
-        <a href="/" class="hover:text-primary-400 border-0 ring-0 focus:ring-0 focus:outline-none">Studios</a>
-        <a href="/" class="hover:text-primary-400">Producers</a>
-        <a href="/" class="hover:text-primary-400">Licensors</a>
+        <a href="/studios" class="hover:text-primary-400 border-0 ring-0 focus:ring-0 focus:outline-none">Studios</a>
+        <a href="/producers" class="hover:text-primary-400">Producers</a>
+        <a href="/licensors" class="hover:text-primary-400">Licensors</a>
       </div>
     </div>
   </div>

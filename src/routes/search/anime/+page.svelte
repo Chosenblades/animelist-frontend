@@ -1,11 +1,17 @@
 <script>
   import MultiSelect from '$lib/components/MultiSelect.svelte';
   import { PUBLIC_API_URL } from '$env/static/public';
+  import { page } from '$app/stores';
+  import { goto } from '$app/navigation';
+
+  console.log($page.url)
 
   export let data;
+
   let results = [];
   let controller = null;
 
+  //These options are always constant and very small, so it's easier and less db queries to hard code them
   const seasonsOptions = {
     data: ['Spring', 'Summer', 'Fall', 'Winter']
   }
@@ -32,14 +38,8 @@
 
   async function search() {
     const queryString = await generateQueryString();
-    console.log(queryString);
-
-    if(queryString.length < 1) {
-      console.log("No query string");
-    }
 
     if(controller) {
-      console.log("Aborted");
       controller.abort();
     }
 
@@ -106,8 +106,48 @@
       queryString += `&themes=${theme}`;
     });
 
+    //goto(`/search/anime?${queryString}`);
+
     return queryString;
   }
+
+  $page.url.searchParams.forEach((value, key, parent) => {
+    switch(key) {
+      case "title":
+        titleInput = value;
+        break;
+      case "genres":
+        genres.push(value);
+        break;
+      case "years":
+        years.push(value);
+        break;
+      case "seasons":
+        seasons.push(value);
+        break;
+      case "types":
+        types.push(value);
+        break;
+      case "statuses":
+        statuses.push(value);
+        break;
+      case "demographics":
+        demographics.push(value);
+        break;
+      case "licensors":
+        licensors.push(value);
+        break;
+      case "producers":
+        producers.push(value);
+        break;
+      case "studios":
+        studios.push(value);
+        break;
+      case "themes":
+        themes.push(value);
+        break;
+    }
+  });
 
   $: results = search(titleInput, genres, years, seasons, types, statuses, demographics, licensors, producers, studios, themes);
 
@@ -144,7 +184,7 @@
     <div class="flex flex-col items-center space-y-4">
       <div class="card flex items-center w-[95%] md:w-[40rem]">
         <i class="fa-solid fa-magnifying-glass text-xl ml-4"></i>
-        <input class="bg-transparent border-0 ring-0 focus:ring-0 w-full p-4 text-lg" type="search" placeholder="Search..." bind:value={titleInput}/>
+        <input class="bg-transparent border-0 ring-0 focus:ring-0 w-full p-4 text-lg" type="search" placeholder="Search..." bind:value={titleInput} autofocus/>
       </div>
 
 

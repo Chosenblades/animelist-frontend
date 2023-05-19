@@ -34,7 +34,7 @@
       <!-- Column 2 -->
       <div class="flex flex-col md:pl-6 space-y-2 items-center md:items-start">
         <!-- Row 1 -->
-        <h1>{data.anime.title_romaji}</h1>
+        <h1 class="h1">{data.anime.title_romaji}</h1>
 
         <!-- Row 2 -->
         {#if data.anime.synopsis}
@@ -96,7 +96,7 @@
 
           {#if data.anime.episodes}
             <div class="min-w-fit">
-              <h6 class="h6">Episodes</h6>
+              <h6>Episodes</h6>
               <p class="stats-value">
                 {data.anime.episodes}
               </p>
@@ -125,7 +125,7 @@
             <div class="min-w-fit">
               <h6>Premiered</h6>
               <p class="stats-value">
-                <a href="/search/anime?year={data.anime.year}&season={data.anime.season}">{data.anime.season} {data.anime.year}</a>
+                <a href="/search/anime?years={data.anime.year}&seasons={data.anime.season}">{data.anime.season} {data.anime.year}</a>
               </p>
             </div>
           {/if}
@@ -164,7 +164,7 @@
               <h6>Producers</h6>
               {#each data.Producers as producer}
                 <p class="stats-value">
-                    <a href="/producer/{producer.id}">{producer.name}</a>
+                    <a href="/search/anime?producers={producer.name}">{producer.name}</a>
                 </p>
               {/each}
             </div>
@@ -177,7 +177,7 @@
               <h6>Licensors</h6>
               {#each data.Licensors as licensor}
                 <p class="stats-value">
-                  <a href="/licensor/{licensor.id}">{licensor.name}</a>
+                  <a href="/search/anime?licensors={licensor.name}">{licensor.name}</a>
                 </p>
               {/each}
             </div>
@@ -190,7 +190,7 @@
               <h6>Studios</h6>
               {#each data.Studios as studio}
                 <p class="stats-value">
-                  <a href="/studio/{studio.id}">{studio.name}</a>
+                  <a href="/search/anime?studios={studio.name}">{studio.name}</a>
                 </p>
               {/each}
             </div>
@@ -203,7 +203,7 @@
               <h6>Genres</h6>
               {#each data.Genres as genre}
                 <p class="stats-value">
-                  <a href="/genre/{genre.id}">{genre.name}</a>
+                  <a href="/search/anime?genres={genre.name}">{genre.name}</a>
                 </p>
               {/each}
             </div>
@@ -216,7 +216,7 @@
               <h6>Themes</h6>
               {#each data.Themes as theme}
                 <p class="stats-value">
-                  <a href="/theme/{theme.id}">{theme.name}</a>
+                  <a href="/search/anime?themes={theme.name}">{theme.name}</a>
                 </p>
               {/each}
             </div>
@@ -228,7 +228,7 @@
             <div class="min-w-fit">
               <h6>Demographic</h6>
               <p class="stats-value">
-                <a href="/demographic/{data.Demographic.id}">{data.Demographic.name}</a>
+                <a href="/search/anime?demographics={data.Demographic.name}">{data.Demographic.name}</a>
               </p>
             </div>
           {/await}
@@ -328,7 +328,7 @@
                           <div class="flex flex-row space-x-2 min-w-0">
                             <img class="w-14 h-20 object-cover rounded-l" src="{staff.image_url}" loading="lazy"/>
                             <div class="flex flex-col space-y-2 justify-between min-w-0">
-                              <h6 class=""><a data-sveltekit-preload-data="hover" href="/staff/{staff.id}"><strong>{staff.name}</strong></a></h6>
+                              <h6 class=""><a data-sveltekit-preload-data="hover" href="/people/{staff.id}"><strong>{staff.name}</strong></a></h6>
                               <p title={staff.AnimeStaff.roles} class="text-sm opacity-80 truncate min-w-0">
                                 {staff.AnimeStaff.roles}
                               </p>
