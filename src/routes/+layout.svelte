@@ -18,12 +18,31 @@
 
   import { Modal, modalStore } from '@skeletonlabs/skeleton';
   import SearchModal from '$lib/components/Modals/SearchModal.svelte';
+  import { afterNavigate } from '$app/navigation';
 
   const modalComponentRegistry = {
     modalSearch: {
       ref: SearchModal
     }
   }
+
+  // Scroll heading into view
+  function scrollHeadingIntoView() {
+    if (!window.location.hash) return;
+    const elemTarget = document.querySelector(window.location.hash);
+    if (elemTarget) elemTarget.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  afterNavigate((params) => {
+    // Scroll to top
+    const isNewPage = params.from && params.to && params.from.route.id !== params.to.route.id;
+    const elemPage = document.querySelector('#page');
+    if (isNewPage && elemPage !== null) {
+      elemPage.scrollTop = 0;
+    }
+    // Scroll heading into view
+    scrollHeadingIntoView();
+  });
 </script>
 
 <Drawer />
