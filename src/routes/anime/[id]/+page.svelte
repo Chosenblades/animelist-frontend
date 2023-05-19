@@ -296,7 +296,7 @@
                             {#if character.People[0]}
                             <div class="flex flex-row space-x-2">
                               <div class="flex flex-col space-y-2 justify-between items-end">
-                                <h6 class="text-right"><a data-sveltekit-preload-data="hover" href="/character/{character.People[0]?.id}"><strong>{character.People[0]?.name}</strong></a></h6>
+                                <h6 class="text-right"><a data-sveltekit-preload-data="hover" href="/people/{character.People[0]?.id}"><strong>{character.People[0]?.name}</strong></a></h6>
                                 <p class="text-sm opacity-80 text-right">
                                   Japanese
                                 </p>
