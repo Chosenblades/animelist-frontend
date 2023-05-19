@@ -22,19 +22,19 @@
       <!-- Column 2 -->
       <div class="hidden md:grid grid-cols-2 gap-8">
         <div class="space-y-6">
-          <h6>Search</h6>
+          <h6>Browse</h6>
           <ul class="space-y-3">
-            <li><a href="/">Anime</a></li>
-            <li><a href="/">Staff</a></li>
-            <li><a href="/">Characters</a></li>
+            <li><a href="/anime">Anime</a></li>
+            <li><a href="/people">People</a></li>
+            <li><a href="/character">Characters</a></li>
           </ul>
         </div>
 
         <div class="space-y-6">
           <h6>Project</h6>
           <ul class="space-y-3">
-            <li><a href="/">Github Repository</a></li>
-            <li><a href="/">My Portfolio</a></li>
+            <li><a href="https://github.com/Chosenblades/animelist-frontend">Github Repository</a></li>
+            <li><a href="https://sethlee.net">My Portfolio</a></li>
           </ul>
         </div>
       </div>
