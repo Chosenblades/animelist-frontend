@@ -18,7 +18,7 @@
     controller = new AbortController();
 
     try {
-      const res = await fetch(`${PUBLIC_API_URL}/anime/search?title=${query}`, { signal: controller.signal });
+      const res = await fetch(`${PUBLIC_API_URL}/search/anime?title=${query}`, { signal: controller.signal });
 
       if (!res.ok) {
         return []
