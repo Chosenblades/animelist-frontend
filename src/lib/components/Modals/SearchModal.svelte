@@ -18,7 +18,7 @@
     controller = new AbortController();
 
     try {
-      const res = await fetch(`${PUBLIC_API_URL}/search/anime?title=${query}`, { signal: controller.signal });
+      const res = await fetch(`${PUBLIC_API_URL}/anime/search?title=${query}`, { signal: controller.signal });
 
       if (!res.ok) {
         return []
@@ -84,7 +84,7 @@
 
     {:else}
       <footer class="hidden md:flex items-center justify-center gap-2 bg-surface-300-600-token p-4 text-xs font-bold">
-        <a href="/anime/search?title={searchQuery}" class="!text-white">View all results</a>
+        <a href="/search/anime?title={searchQuery}" class="!text-white">View all results</a>
       </footer>
     {/if}
   {/await}
