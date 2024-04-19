@@ -25,8 +25,9 @@
       }
 
       const anime = await res.json();
+      console.log(anime);
       controller = null;
-      return anime;
+      return anime[0];
     } catch (e) {
       //console.log("error")
     }
